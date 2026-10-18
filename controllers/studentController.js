@@ -113,10 +113,29 @@ const remove = async (req, res) => {
 	}
 };
 
+// GET /api/students/search?q={keyword}
+const search = async (req, res) => {
+	try {
+		const students = await Student.find({ name: req.query.q });
+
+		res.status(200).json({
+			data: students,
+			message: 'Search student successfully',
+			success: true
+		});
+	} catch (error) {
+		res.status(500).json({
+			message: 'Internal server error',
+			success: false
+		});
+	}
+};
+
 module.exports = {
 	getAll,
 	getById,
 	create,
 	update,
-	remove
+	remove,
+	search
 };
