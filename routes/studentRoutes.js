@@ -4,6 +4,8 @@ const router = express.Router();
 
 const studentController = require('../controllers/studentController');
 
+router.get('/search', studentController.search);
+
 router.get('/', studentController.getAll);
 router.get('/:id', studentController.getById);
 
