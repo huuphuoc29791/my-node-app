@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const studentController = require('../controllers/studentController');
+const { studentController } = require('../dependencies/studentDependencies');
 
 router.get('/search', studentController.search);
 
